@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const c = require('../controllers/users.controller');
+router.get('/', c.list);
+router.get('/:id', c.get);
+router.post('/', c.create);
+router.patch('/:id', c.update);
+router.delete('/:id', c.remove);
+router.get('/:id/posts', c.posts);
+router.get('/:id/liked-posts', c.likedPosts);
+module.exports = router;
