@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const c = require('../controllers/posts.controller');
+const lc = require('../controllers/likes.controller');
+router.get('/', c.list);
+router.get('/:id', c.get);
+router.post('/', c.create);
+router.patch('/:id', c.update);
+router.delete('/:id', c.remove);
+router.get('/:id/likes', c.likes);
+router.post('/:id/likes', lc.like);
+router.delete('/:id/likes/:userId', lc.unlike);
+module.exports = router;
